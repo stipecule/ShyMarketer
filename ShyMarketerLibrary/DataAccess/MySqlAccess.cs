@@ -13,7 +13,7 @@ namespace ShyMarketerLibrary.DataAccess
     public class MySqlAccess : IMySqlAccess
     {
         private readonly IConfiguration _config;
-        public string ConnectionString { get; set; } = "Server=635yhnodd4t4.eu-central-2.psdb.cloud;Database=shymarketer;user=0t4bbhcjfdrp;password=pscale_pw_bs3dqcKlFiUfk1Bm5F_eaeBz9S495ytmecgH5utmnwE;SslMode=VerifyFull;";
+        public string ConnectionString { get; set; } = "";
 
         public MySqlAccess(IConfiguration config)
         {
