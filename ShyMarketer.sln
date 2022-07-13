@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShyMarketerServer", "ShyMarketerServer\ShyMarketerServer.csproj", "{9A4224CB-1157-4C57-A2C6-934AF059BEC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShyMarketerServer", "ShyMarketerServer\ShyMarketerServer.csproj", "{9A4224CB-1157-4C57-A2C6-934AF059BEC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShyMarketerLibrary", "ShyMarketerLibrary\ShyMarketerLibrary.csproj", "{22C91205-79FA-49D0-A281-80C421C6948C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShyMarketerLibrary", "ShyMarketerLibrary\ShyMarketerLibrary.csproj", "{22C91205-79FA-49D0-A281-80C421C6948C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShyMarketerAddin", "ShyMarketerAddin\ShyMarketerAddin.csproj", "{B83D856C-9F44-43DE-90E9-1ABA3BED5764}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{22C91205-79FA-49D0-A281-80C421C6948C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22C91205-79FA-49D0-A281-80C421C6948C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22C91205-79FA-49D0-A281-80C421C6948C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83D856C-9F44-43DE-90E9-1ABA3BED5764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83D856C-9F44-43DE-90E9-1ABA3BED5764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83D856C-9F44-43DE-90E9-1ABA3BED5764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83D856C-9F44-43DE-90E9-1ABA3BED5764}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
