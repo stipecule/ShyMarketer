@@ -1,4 +1,6 @@
-﻿namespace ShyMarketerLibrary.DataAccess
+﻿using ShyMarketerLibrary.Models;
+
+namespace ShyMarketerLibrary.DataAccess
 {
     public interface IMySqlAccess
     {
@@ -6,5 +8,6 @@
 
         Task<List<T>> Fetch<T, U>(string sql, U parameters);
         public void Execute<T, U>(string sql, U parameters);
+        public void Insert(Article article, string query);
     }
 }

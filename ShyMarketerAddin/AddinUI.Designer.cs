@@ -32,23 +32,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxCompanySector = new System.Windows.Forms.ComboBox();
             this.textBoxAboutCompanyText = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxCompanyLink = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.txtBoxCompanyName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxArticleTitle = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBoxArticlePunchLine = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxTargetAudience = new System.Windows.Forms.ComboBox();
             this.textBoxArticleText = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
-            this.comboBoxCompanySector = new System.Windows.Forms.ComboBox();
-            this.textBoxTargetAudience = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxArticlePunchLine = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxArticleTitle = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.btnCallAPI = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -111,44 +112,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tell us about yourself!";
             // 
-            // tabControl1
+            // comboBoxCompanySector
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1000, 476);
-            this.tabControl1.TabIndex = 2;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(992, 450);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Company Info";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.textBoxTargetAudience);
-            this.tabPage2.Controls.Add(this.textBoxArticleText);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.textBoxArticlePunchLine);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.textBoxArticleTitle);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(992, 450);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Marketing";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.comboBoxCompanySector.FormattingEnabled = true;
+            this.comboBoxCompanySector.Items.AddRange(new object[] {
+            "IT",
+            "Marketing",
+            "Health",
+            "Engineering"});
+            this.comboBoxCompanySector.Location = new System.Drawing.Point(135, 130);
+            this.comboBoxCompanySector.Name = "comboBoxCompanySector";
+            this.comboBoxCompanySector.Size = new System.Drawing.Size(179, 21);
+            this.comboBoxCompanySector.TabIndex = 14;
             // 
             // textBoxAboutCompanyText
             // 
@@ -196,43 +171,58 @@
             this.txtBoxCompanyName.Size = new System.Drawing.Size(535, 23);
             this.txtBoxCompanyName.TabIndex = 7;
             // 
-            // textBoxArticleTitle
+            // tabControl1
             // 
-            this.textBoxArticleTitle.Location = new System.Drawing.Point(135, 18);
-            this.textBoxArticleTitle.Name = "textBoxArticleTitle";
-            this.textBoxArticleTitle.Size = new System.Drawing.Size(535, 23);
-            this.textBoxArticleTitle.TabIndex = 7;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1000, 476);
+            this.tabControl1.TabIndex = 2;
             // 
-            // label8
+            // tabPage1
             // 
-            this.label8.Location = new System.Drawing.Point(6, 18);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 23);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Article Title:";
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(992, 450);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Company Info";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // tabPage2
             // 
-            this.label7.Location = new System.Drawing.Point(6, 63);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 23);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Article Punchline:";
+            this.tabPage2.Controls.Add(this.btnCallAPI);
+            this.tabPage2.Controls.Add(this.comboBoxTargetAudience);
+            this.tabPage2.Controls.Add(this.textBoxArticleText);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.textBoxArticlePunchLine);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.textBoxArticleTitle);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(992, 450);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Marketing";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBoxArticlePunchLine
+            // comboBoxTargetAudience
             // 
-            this.textBoxArticlePunchLine.Location = new System.Drawing.Point(135, 63);
-            this.textBoxArticlePunchLine.Name = "textBoxArticlePunchLine";
-            this.textBoxArticlePunchLine.Size = new System.Drawing.Size(535, 23);
-            this.textBoxArticlePunchLine.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(6, 113);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 23);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Target Sector:";
+            this.comboBoxTargetAudience.FormattingEnabled = true;
+            this.comboBoxTargetAudience.Items.AddRange(new object[] {
+            "IT",
+            "Marketing",
+            "Health",
+            "Engineering"});
+            this.comboBoxTargetAudience.Location = new System.Drawing.Point(135, 110);
+            this.comboBoxTargetAudience.Name = "comboBoxTargetAudience";
+            this.comboBoxTargetAudience.Size = new System.Drawing.Size(179, 21);
+            this.comboBoxTargetAudience.TabIndex = 15;
             // 
             // textBoxArticleText
             // 
@@ -242,31 +232,56 @@
             this.textBoxArticleText.TabIndex = 13;
             this.textBoxArticleText.Text = "Some wanna know facts about you, your goals, ambitions...";
             // 
-            // comboBoxCompanySector
+            // label6
             // 
-            this.comboBoxCompanySector.FormattingEnabled = true;
-            this.comboBoxCompanySector.Items.AddRange(new object[] {
-            "IT",
-            "Marketing",
-            "Health",
-            "Engineering"});
-            this.comboBoxCompanySector.Location = new System.Drawing.Point(135, 130);
-            this.comboBoxCompanySector.Name = "comboBoxCompanySector";
-            this.comboBoxCompanySector.Size = new System.Drawing.Size(179, 21);
-            this.comboBoxCompanySector.TabIndex = 14;
+            this.label6.Location = new System.Drawing.Point(6, 113);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(123, 23);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Target Sector:";
             // 
-            // textBoxTargetAudience
+            // textBoxArticlePunchLine
             // 
-            this.textBoxTargetAudience.FormattingEnabled = true;
-            this.textBoxTargetAudience.Items.AddRange(new object[] {
-            "IT",
-            "Marketing",
-            "Health",
-            "Engineering"});
-            this.textBoxTargetAudience.Location = new System.Drawing.Point(135, 110);
-            this.textBoxTargetAudience.Name = "textBoxTargetAudience";
-            this.textBoxTargetAudience.Size = new System.Drawing.Size(179, 21);
-            this.textBoxTargetAudience.TabIndex = 15;
+            this.textBoxArticlePunchLine.Location = new System.Drawing.Point(135, 63);
+            this.textBoxArticlePunchLine.Name = "textBoxArticlePunchLine";
+            this.textBoxArticlePunchLine.Size = new System.Drawing.Size(535, 23);
+            this.textBoxArticlePunchLine.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(6, 63);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 23);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Article Punchline:";
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(6, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(123, 23);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Article Title:";
+            // 
+            // textBoxArticleTitle
+            // 
+            this.textBoxArticleTitle.Location = new System.Drawing.Point(135, 18);
+            this.textBoxArticleTitle.Name = "textBoxArticleTitle";
+            this.textBoxArticleTitle.Size = new System.Drawing.Size(535, 23);
+            this.textBoxArticleTitle.TabIndex = 7;
+            // 
+            // btnCallAPI
+            // 
+            this.btnCallAPI.Location = new System.Drawing.Point(258, 330);
+            this.btnCallAPI.Name = "btnCallAPI";
+            this.btnCallAPI.Size = new System.Drawing.Size(110, 34);
+            this.btnCallAPI.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnCallAPI.StateCommon.Border.Rounding = 5;
+            this.btnCallAPI.TabIndex = 16;
+            this.btnCallAPI.Values.Text = "Let\'s market!!";
+            this.btnCallAPI.Click += new System.EventHandler(this.btnCallAPI_Click);
             // 
             // AddinUI
             // 
@@ -310,7 +325,8 @@
         public ComponentFactory.Krypton.Toolkit.KryptonRichTextBox textBoxAboutCompanyText;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxArticleTitle;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxArticlePunchLine;
-        public System.Windows.Forms.ComboBox textBoxTargetAudience;
+        public System.Windows.Forms.ComboBox comboBoxTargetAudience;
         public ComponentFactory.Krypton.Toolkit.KryptonRichTextBox textBoxArticleText;
+        public ComponentFactory.Krypton.Toolkit.KryptonButton btnCallAPI;
     }
 }

@@ -30,18 +30,21 @@ namespace ShyMarketerLibrary.BusinessLogic
         public void SaveArticle(Article article)
         {
             string queryString = @"insert into articles(CompanyName,CompanySector,AboutCompanyText,CompanyLink,ArticleTitle,ArticlePunchLine,ArticleText,ArticleTargetAudience) 
-values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,@ArticlePunchLine,@ArticleText,@ArticleTargetAudience)";
+values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,@ArticlePunchLine,@ArticleText,@ArticleTargetAudience);";
 
-            var parameters = new DynamicParameters();
-            parameters.Add("@CompanyName", article.CompanyName);
-            parameters.Add("@CompanySector", article.CompanySector);
-            parameters.Add("@AboutCompanyText", article.AboutCompanyText);
-            parameters.Add("@CompanyLink", article.CompanyLink);
-            parameters.Add("@ArticlePunchLine", article.ArticlePunchLine);
-            parameters.Add("@ArticleText", article.ArticleText);
-            parameters.Add("@ArticleTargetAudience", article.ArticleTargetAudience);
-            _db.Execute<Article, dynamic>(queryString, parameters);
+            //var parameters = new DynamicParameters();
+            //parameters.Add("@CompanyName", article.CompanyName);
+            //parameters.Add("@CompanySector", article.CompanySector);
+            //parameters.Add("@AboutCompanyText", article.AboutCompanyText);
+            //parameters.Add("@CompanyLink", article.CompanyLink);
+            //parameters.Add("@ArticlePunchLine", article.ArticlePunchLine);
+            //parameters.Add("@ArticleText", article.ArticleTitle);
+            //parameters.Add("@ArticleText", article.ArticleText);
+            //parameters.Add("@ArticleTargetAudience", article.ArticleTargetAudience);
+            //_db.Execute<Article, dynamic>(queryString, parameters);
+            _db.Insert(article, queryString);
         }
+        
 
     }
 }

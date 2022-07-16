@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
+using ShyMarketerLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -37,5 +38,13 @@ namespace ShyMarketerLibrary.DataAccess
                
             }
         }
+        public void Insert(Article article,string query)
+        {
+            using (var con = new MySql.Data.MySqlClient.MySqlConnection(ConnectionString))
+            {
+                con.Execute(query, param: article);
+            }
+        }
+
     }
 }

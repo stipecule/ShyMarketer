@@ -15,10 +15,11 @@ namespace ShyMarketerAPI.Controllers
             _db = db;
         }
         [HttpPost]
-        public IActionResult PostArticle(Article article)
+        public Article PostArticle(Article article)
         {
+            
             _db.SaveArticle(article);
-            return Ok();
+            return article;
         }
     }
 }
