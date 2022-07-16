@@ -1,10 +1,12 @@
-﻿namespace ShyMarketerLibrary.DataAccess
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace ShyMarketerLibraries.DataAccess
 {
     public interface IMySqlAccess
     {
         string ConnectionString { get; set; }
 
         Task<List<T>> Fetch<T, U>(string sql, U parameters);
-        public void Execute<T, U>(string sql, U parameters);
     }
 }

@@ -1,14 +1,10 @@
-﻿using Dapper;
-using ShyMarketerLibrary.DataAccess;
-using ShyMarketerLibrary.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace ShyMarketerLibrary.BusinessLogic
+namespace ShyMarketerClassLibrary.BusinessLogic
 {
     public class ArticleController : IArticleController
     {
@@ -18,7 +14,7 @@ namespace ShyMarketerLibrary.BusinessLogic
             _db = db;
         }
 
-        public  Task<List<Article>> LoadArticle(int id)
+        public Task<List<Article>> LoadArticle(int id)
         {
             string queryString = @"Select CompanyName,CompanySector,AboutCompanyText,CompanyLink,ArticleTitle,ArticlePunchLine,
                                    ArticleText,ArticleTargetAudience from articles where id=@ID";
@@ -26,7 +22,6 @@ namespace ShyMarketerLibrary.BusinessLogic
             parameters.Add("@ID", id);
             return _db.Fetch<Article, dynamic>(queryString, parameters);
         }
-
         public void SaveArticle(Article article)
         {
             string queryString = @"insert into articles(CompanyName,CompanySector,AboutCompanyText,CompanyLink,ArticleTitle,ArticlePunchLine,ArticleText,ArticleTargetAudience) 
@@ -42,6 +37,7 @@ values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,
             parameters.Add("@ArticleTargetAudience", article.ArticleTargetAudience);
             _db.Execute<Article, dynamic>(queryString, parameters);
         }
+
 
     }
 }
