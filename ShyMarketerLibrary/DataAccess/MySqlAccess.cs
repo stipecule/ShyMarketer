@@ -45,6 +45,14 @@ namespace ShyMarketerLibrary.DataAccess
                 con.Execute(query, param: article);
             }
         }
+        public int GetMarketingID(string query,string companySector)
+        {
+            using (var con = new MySql.Data.MySqlClient.MySqlConnection(ConnectionString))
+            {
+                var affectedRows = con.Query<int>(query, new { CompanySector = companySector }).First();
+                return affectedRows;
+            }
+        }
 
     }
 }

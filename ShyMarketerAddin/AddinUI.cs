@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,16 +41,10 @@ namespace ShyMarketerAddin
 
         private void btnCallAPI_Click(object sender, EventArgs e)
         {
-
+            //get data for article from UI textboxes and comboboxes
             Article article = new Article();
-            article.CompanyName= txtBoxCompanyName.Text;
-            article.ArticleTitle = textBoxArticleTitle.Text;
-            article.ArticleText = textBoxArticleText.Text;
-            article.ArticlePunchLine = textBoxArticlePunchLine.Text;
-            article.CompanyLink = textBoxCompanyLink.Text;
-            article.AboutCompanyText = textBoxAboutCompanyText.Text;
-            article.CompanySector = comboBoxCompanySector.SelectedText;
-            article.ArticleTargetAudience = comboBoxTargetAudience.SelectedItem.ToString();
+            article = createNewArticle(article);
+            //communicate with API
             var jsonFormatedObj = Newtonsoft.Json.JsonConvert.SerializeObject(article);
             string url = String.Format("https://localhost:7172/api/Articles");
             WebRequest requestObjPost = WebRequest.Create(url);
@@ -61,9 +56,28 @@ namespace ShyMarketerAddin
                 streamWriter.Flush();
                 streamWriter.Close();
                 var httpResponse = (HttpWebResponse)requestObjPost.GetResponse();
-                MessageBox.Show(httpResponse.ToString());
+                if (httpResponse.StatusCode.ToString() == "OK") MessageBox.Show("Saved");
+                else MessageBox.Show("Please check input fields...");
             }
-            MessageBox.Show("Saved");
+            //fetch the last article id by timestamp to show from database, in the sector that the company is in
+            string apiUrl = "https://localhost:7172/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
+            HttpClient client = new HttpClient();
+            HttpResponseMessage responseis = client.PostAsync(apiUrl,null).Result;
+            MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);
+           
+        }
+        private Article createNewArticle(Article article)
+        {
+           
+            article.CompanyName = txtBoxCompanyName.Text;
+            article.ArticleTitle = textBoxArticleTitle.Text;
+            article.ArticleText = textBoxArticleText.Text;
+            article.ArticlePunchLine = textBoxArticlePunchLine.Text;
+            article.CompanyLink = textBoxCompanyLink.Text;
+            article.AboutCompanyText = textBoxAboutCompanyText.Text;
+            article.CompanySector = comboBoxCompanySector.SelectedItem.ToString(); ;
+            article.ArticleTargetAudience = comboBoxTargetAudience.SelectedItem.ToString();
+            return article;
         }
         public class Article
         {

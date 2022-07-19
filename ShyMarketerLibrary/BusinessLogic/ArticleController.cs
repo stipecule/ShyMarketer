@@ -44,7 +44,14 @@ values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,
             //_db.Execute<Article, dynamic>(queryString, parameters);
             _db.Insert(article, queryString);
         }
-        
+        public int LoadArticleId(string CompanySector)
+        {
+            string queryString = @"select id from articles where CompanySector = @CompanySector order by LastSeen asc limit 1;";
+            //var parameters = new DynamicParameters();
+            //parameters.Add("@CompanySector", CompanySector);
+            return _db.GetMarketingID(queryString, CompanySector);
+        }
+
 
     }
 }

@@ -21,5 +21,15 @@ namespace ShyMarketerAPI.Controllers
             _db.SaveArticle(article);
             return article;
         }
+     
+        [HttpPost("{CompanySector}")]
+        public int GetArticleToDisplay(string CompanySector)
+        {
+            Article article = new Article();
+            article.id = _db.LoadArticleId(CompanySector);
+            return article.id;
+        }
+
+
     }
 }
