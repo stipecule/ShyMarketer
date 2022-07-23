@@ -27,9 +27,11 @@
     <div class="card">
       <h2>@art.ArticlePunchLine</h2>
    @*   <h5>Title description</h5>*@
-      <div class="fakeimg" style="height:200px;">Image</div>
       <p>@art.ArticleText</p>
+      @*<div class="fakeimg" style="width: 100%,
+   background-image:url('yourimage.file');"alt="Example image"></div>*@
     </div>
+     <img src="@ImageSrc" style="width: 100%,;"alt="Product image"/>
   </div>
   <div class="rightcolumn">
     <div class="card">
@@ -43,6 +45,9 @@
     </div>
   </div>
 </div>
+@*<div class="row">
+    <img src="@ImageSrc" style="width: 100%,;"alt="Example image"/>
+</div>*@
 
 <footer class="footer">
     <div class="container">
@@ -84,11 +89,23 @@
     [Parameter]
     public string ArticleId { get; set; }
     private List<ShyMarketerLibrary.Models.Article> articles{ get; set; }
+    private string ImageSrc = "";
 
     protected override async Task OnInitializedAsync()
     {
 
         articles = new List<ShyMarketerLibrary.Models.Article>();
         articles =  await _db.LoadArticle(Int32.Parse(ArticleId));
+        var photo = GetImage(Convert.ToBase64String(articles[0].ArticleImage));
+        ImageSrc = string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(photo));
+    }
+    private byte[] GetImage(string sBase64string)
+    {
+        byte[] bytes = null;
+        if (!string.IsNullOrEmpty(sBase64string))
+        {
+            bytes = Convert.FromBase64String(sBase64string);
+        }
+        return bytes;
     }
 }

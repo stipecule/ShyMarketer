@@ -21,7 +21,7 @@ namespace ShyMarketerLibrary.BusinessLogic
         public  Task<List<Article>> LoadArticle(int id)
         {
             string queryString = @"Select CompanyName,CompanySector,AboutCompanyText,CompanyLink,ArticleTitle,ArticlePunchLine,
-                                   ArticleText,ArticleTargetAudience from articles where id=@ID";
+                                   ArticleText,ArticleTargetAudience,ArticleImage from articles where id=@ID";
             var parameters = new DynamicParameters();
             parameters.Add("@ID", id);
             return _db.Fetch<Article, dynamic>(queryString, parameters);
@@ -29,8 +29,8 @@ namespace ShyMarketerLibrary.BusinessLogic
 
         public void SaveArticle(Article article)
         {
-            string queryString = @"insert into articles(CompanyName,CompanySector,AboutCompanyText,CompanyLink,ArticleTitle,ArticlePunchLine,ArticleText,ArticleTargetAudience) 
-values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,@ArticlePunchLine,@ArticleText,@ArticleTargetAudience);";
+            string queryString = @"insert into articles(CompanyName,CompanySector,AboutCompanyText,CompanyLink,ArticleTitle,ArticlePunchLine,ArticleText,ArticleTargetAudience,ArticleImage) 
+values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,@ArticlePunchLine,@ArticleText,@ArticleTargetAudience,@ArticleImage);";
 
             //var parameters = new DynamicParameters();
             //parameters.Add("@CompanyName", article.CompanyName);

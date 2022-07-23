@@ -63,7 +63,7 @@ namespace ShyMarketerAddin
             string apiUrl = "https://localhost:7172/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
             HttpClient client = new HttpClient();
             HttpResponseMessage responseis = client.PostAsync(apiUrl,null).Result;
-            MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);
+            //MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);
            
         }
         private Article createNewArticle(Article article)
@@ -77,6 +77,15 @@ namespace ShyMarketerAddin
             article.AboutCompanyText = textBoxAboutCompanyText.Text;
             article.CompanySector = comboBoxCompanySector.SelectedItem.ToString(); ;
             article.ArticleTargetAudience = comboBoxTargetAudience.SelectedItem.ToString();
+            FileStream fs;
+            BinaryReader br;
+            string FileName = textBoxImage.Text;
+            byte[] ImageData;
+            fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+            br = new BinaryReader(fs);
+            article.ArticleImage = br.ReadBytes((int)fs.Length);
+            br.Close();
+            fs.Close();
             return article;
         }
         public class Article
@@ -90,8 +99,26 @@ namespace ShyMarketerAddin
             public string ArticlePunchLine { get; set; }
             public string ArticleText { get; set; }
             public string ArticleTargetAudience { get; set; }
-            public string ArticleImage { get; set; }
+            public byte[] ArticleImage { get; set; }
 
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                openFileDialog1.Filter = "Image files | *.png";
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    textBoxImage.Text = openFileDialog1.FileName;
+                    pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

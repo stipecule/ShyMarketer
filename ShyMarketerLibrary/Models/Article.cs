@@ -17,7 +17,7 @@ namespace ShyMarketerLibrary.Models
         public string? ArticlePunchLine { get; set; }
         public string? ArticleText { get; set; }
         public string? ArticleTargetAudience { get; set; }
-        public string? ArticleImage { get; set; }
+        public byte[] ArticleImage { get; set; }
 
     }
 }
