@@ -31,7 +31,12 @@
       @*<div class="fakeimg" style="width: 100%,
    background-image:url('yourimage.file');"alt="Example image"></div>*@
     </div>
-     <img src="@ImageSrc" style="width: 100%,;"alt="Product image"/>
+   <div>
+    <img class="marginauto" src="@ImageSrc" alt="centered image" />
+</div>
+    @* <img src="@ImageSrc" alt="Product image" />*@
+ 
+     @*<img src="@ImageSrc" style="text-align:center;"alt="Product image" />*@
   </div>
   <div class="rightcolumn">
     <div class="card">
@@ -109,3 +114,4 @@
         return bytes;
     }
 }
+

@@ -64,3 +64,8 @@ body {
         padding: 0;
     }
 }
+
+.marginauto {
+    margin: 10px auto 20px;
+    display: block;
+}

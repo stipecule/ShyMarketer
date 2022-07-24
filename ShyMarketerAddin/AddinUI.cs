@@ -16,6 +16,7 @@ namespace ShyMarketerAddin
     public partial class AddinUI : UserControl
     {
         public bool explorerCheck { get; set; } = true;
+        private string ImageFilePath { get; set; }
         public AddinUI()
         {
             InitializeComponent();
@@ -44,6 +45,24 @@ namespace ShyMarketerAddin
             //get data for article from UI textboxes and comboboxes
             Article article = new Article();
             article = createNewArticle(article);
+            //fetch the last article id by timestamp to show from database, in the sector that the company is in
+            string apiUrl = "https://localhost:7172/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
+            HttpClient client = new HttpClient();
+            HttpResponseMessage responseis = client.PostAsync(apiUrl, null).Result;
+            //MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);if (article is null) return;
+            DialogResult dialogResult = MessageBox.Show("Please check out the following article before we market your product!", "Confirm", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start("https://localhost:7263/Article/" + responseis.Content.ReadAsStringAsync().Result);
+            }
+            else
+            {
+                MessageBox.Show("ShyMarketer relies on people sharing ideas and products, so please check out" +
+                    "others articles before we publish your own.");
+                return;
+            }
+           
+
             //communicate with API
             var jsonFormatedObj = Newtonsoft.Json.JsonConvert.SerializeObject(article);
             string url = String.Format("https://localhost:7172/api/Articles");
@@ -56,19 +75,19 @@ namespace ShyMarketerAddin
                 streamWriter.Flush();
                 streamWriter.Close();
                 var httpResponse = (HttpWebResponse)requestObjPost.GetResponse();
-                if (httpResponse.StatusCode.ToString() == "OK") MessageBox.Show("Saved");
+                if (httpResponse.StatusCode.ToString() == "OK") MessageBox.Show("Your product was sent to our database and is ready for marketing!Thank you for using ShyMarketer and good luck!!");
                 else MessageBox.Show("Please check input fields...");
             }
-            //fetch the last article id by timestamp to show from database, in the sector that the company is in
-            string apiUrl = "https://localhost:7172/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
-            HttpClient client = new HttpClient();
-            HttpResponseMessage responseis = client.PostAsync(apiUrl,null).Result;
-            //MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);
+           
            
         }
         private Article createNewArticle(Article article)
         {
-           
+            if (!Validation()) 
+            {
+                MessageBox.Show("Please fill all the data!");
+                return null;
+            }
             article.CompanyName = txtBoxCompanyName.Text;
             article.ArticleTitle = textBoxArticleTitle.Text;
             article.ArticleText = textBoxArticleText.Text;
@@ -79,14 +98,20 @@ namespace ShyMarketerAddin
             article.ArticleTargetAudience = comboBoxTargetAudience.SelectedItem.ToString();
             FileStream fs;
             BinaryReader br;
-            string FileName = textBoxImage.Text;
             byte[] ImageData;
-            fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+            fs = new FileStream(ImageFilePath, FileMode.Open, FileAccess.Read);
             br = new BinaryReader(fs);
             article.ArticleImage = br.ReadBytes((int)fs.Length);
             br.Close();
             fs.Close();
             return article;
+        }
+        private bool Validation()
+        {
+            if (txtBoxCompanyName.Text != "" && textBoxArticleTitle.Text != "" && textBoxArticleText.Text != "" &&
+                textBoxArticlePunchLine.Text != "" && textBoxCompanyLink.Text != "" && textBoxAboutCompanyText.Text != "" &&
+                comboBoxCompanySector.SelectedItem.ToString() != "" && comboBoxTargetAudience.SelectedItem.ToString() != "" ) return true;
+            else return false;
         }
         public class Article
         {
@@ -111,7 +136,7 @@ namespace ShyMarketerAddin
                 openFileDialog1.Filter = "Image files | *.png";
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    textBoxImage.Text = openFileDialog1.FileName;
+                    ImageFilePath = openFileDialog1.FileName;
                     pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
                 }
             }

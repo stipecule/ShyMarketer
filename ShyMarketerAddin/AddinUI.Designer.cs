@@ -42,6 +42,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnCallAPI = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.comboBoxTargetAudience = new System.Windows.Forms.ComboBox();
             this.textBoxArticleText = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
@@ -50,9 +52,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxArticleTitle = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.textBoxImage = new System.Windows.Forms.TextBox();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.comboBoxCompanySector);
             this.groupBox1.Controls.Add(this.textBoxAboutCompanyText);
             this.groupBox1.Controls.Add(this.label5);
@@ -123,7 +125,14 @@
             "IT",
             "Marketing",
             "Health",
-            "Engineering"});
+            "Engineering",
+            "Entertainment",
+            "Education",
+            "Agriculture",
+            "Fashion",
+            "Finance and economic",
+            "Media and News",
+            "Telecommunication"});
             this.comboBoxCompanySector.Location = new System.Drawing.Point(135, 130);
             this.comboBoxCompanySector.Name = "comboBoxCompanySector";
             this.comboBoxCompanySector.Size = new System.Drawing.Size(179, 21);
@@ -133,9 +142,9 @@
             // 
             this.textBoxAboutCompanyText.Location = new System.Drawing.Point(9, 195);
             this.textBoxAboutCompanyText.Name = "textBoxAboutCompanyText";
-            this.textBoxAboutCompanyText.Size = new System.Drawing.Size(661, 118);
+            this.textBoxAboutCompanyText.Size = new System.Drawing.Size(661, 243);
             this.textBoxAboutCompanyText.TabIndex = 13;
-            this.textBoxAboutCompanyText.Text = "Some wanna know facts about you, your goals, ambitions...";
+            this.textBoxAboutCompanyText.Text = "";
             // 
             // label5
             // 
@@ -199,8 +208,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.pictureBox);
-            this.tabPage2.Controls.Add(this.textBoxImage);
             this.tabPage2.Controls.Add(this.kryptonButton1);
             this.tabPage2.Controls.Add(this.btnCallAPI);
             this.tabPage2.Controls.Add(this.comboBoxTargetAudience);
@@ -218,11 +227,35 @@
             this.tabPage2.Text = "Marketing";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(463, 93);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(207, 76);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox.TabIndex = 19;
+            this.pictureBox.TabStop = false;
+            // 
+            // kryptonButton1
+            // 
+            this.kryptonButton1.Location = new System.Drawing.Point(339, 110);
+            this.kryptonButton1.Name = "kryptonButton1";
+            this.kryptonButton1.Size = new System.Drawing.Size(110, 26);
+            this.kryptonButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonButton1.StateCommon.Border.Rounding = 5;
+            this.kryptonButton1.TabIndex = 17;
+            this.kryptonButton1.Values.Text = "Select an image";
+            this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
+            // 
             // btnCallAPI
             // 
-            this.btnCallAPI.Location = new System.Drawing.Point(107, 410);
+            this.btnCallAPI.Location = new System.Drawing.Point(194, 410);
             this.btnCallAPI.Name = "btnCallAPI";
-            this.btnCallAPI.Size = new System.Drawing.Size(110, 34);
+            this.btnCallAPI.Size = new System.Drawing.Size(255, 34);
+            this.btnCallAPI.StateCommon.Back.Color1 = System.Drawing.Color.LightGreen;
+            this.btnCallAPI.StateCommon.Back.Color2 = System.Drawing.Color.LightGreen;
             this.btnCallAPI.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -238,7 +271,14 @@
             "IT",
             "Marketing",
             "Health",
-            "Engineering"});
+            "Engineering",
+            "Entertainment",
+            "Education",
+            "Agriculture",
+            "Fashion",
+            "Finance and economic",
+            "Media and News",
+            "Telecommunication"});
             this.comboBoxTargetAudience.Location = new System.Drawing.Point(135, 110);
             this.comboBoxTargetAudience.Name = "comboBoxTargetAudience";
             this.comboBoxTargetAudience.Size = new System.Drawing.Size(179, 21);
@@ -248,9 +288,9 @@
             // 
             this.textBoxArticleText.Location = new System.Drawing.Point(9, 175);
             this.textBoxArticleText.Name = "textBoxArticleText";
-            this.textBoxArticleText.Size = new System.Drawing.Size(661, 118);
+            this.textBoxArticleText.Size = new System.Drawing.Size(661, 213);
             this.textBoxArticleText.TabIndex = 13;
-            this.textBoxArticleText.Text = "Some wanna know facts about you, your goals, ambitions...";
+            this.textBoxArticleText.Text = "";
             // 
             // label6
             // 
@@ -290,34 +330,23 @@
             this.textBoxArticleTitle.Size = new System.Drawing.Size(535, 23);
             this.textBoxArticleTitle.TabIndex = 7;
             // 
-            // kryptonButton1
+            // label3
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(19, 311);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(110, 34);
-            this.kryptonButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonButton1.StateCommon.Border.Rounding = 5;
-            this.kryptonButton1.TabIndex = 17;
-            this.kryptonButton1.Values.Text = "Select Image!";
-            this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(336, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Some wanna know facts about you, your company, goals, ambitions...";
             // 
-            // textBoxImage
+            // label9
             // 
-            this.textBoxImage.Location = new System.Drawing.Point(156, 325);
-            this.textBoxImage.Name = "textBoxImage";
-            this.textBoxImage.Size = new System.Drawing.Size(100, 20);
-            this.textBoxImage.TabIndex = 18;
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.Location = new System.Drawing.Point(323, 314);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(207, 76);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox.TabIndex = 19;
-            this.pictureBox.TabStop = false;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 156);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(170, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Main text of your advertising article";
             // 
             // AddinUI
             // 
@@ -367,6 +396,7 @@
         public ComponentFactory.Krypton.Toolkit.KryptonButton btnCallAPI;
         public ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
         private System.Windows.Forms.PictureBox pictureBox;
-        public System.Windows.Forms.TextBox textBoxImage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label9;
     }
 }
