@@ -114,14 +114,15 @@ a, .btn-link {
 .hero {
     color: white;
     text-align: center;
-    padding: 15em 0;
+    padding: 12em 0;
     background: url(../img/LoneDev.jpg),radial-gradient(#fff,#808080);
     background-blend-mode: multiply;
     background-repeat:no-repeat;
     background-size:cover;
 }
 .p-title{
-    margin-top:1.5em;
+    margin-top:2.0em;
+    font-size:18px;
 }
 .container-cards {
     display: flex;
@@ -260,3 +261,29 @@ a, .btn-link {
                 width: 100%;
             }
         }
+
+
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width:fit-content
+}
+
+.special {
+  /*  width: 100px;
+    height: 100px;*/
+    transition: transform 450ms ease-in-out, opacity 250ms linear;
+}
+.icon-text {
+    display: none;
+    color:wheat;
+}
+.special:hover + .icon-text {
+    display: block;
+    transform: scale(1.1);
+    opacity: .9;
+}
+
+      
+    

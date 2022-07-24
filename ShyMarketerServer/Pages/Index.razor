@@ -5,27 +5,34 @@
 <header class="hero">
     <div class="container">
         <h1 class="primary-title">The easy approach to marketing</h1>
-        <p class="p-title">Let us leverage open source community to improve the visibility of our products</p>
-        <a class="form-control btn btn-primary" href="/download">Download</a>
-
+        <p class="p-title">Let us leverage open source community to improve the <b>visibility</b> of our products</p>
+        <div class="item" style="margin-top:70px;">
+             <img class="special" src="img/icon.png" style="float: right;"/>
+               <p class="icon-text">Don't be shy, give ShyMarketer a try!</p>
+          @*    <span class="caption">Don't be shy, give us a try!</span*@
+        </div>
+      
+        
+  @*      <a class="form-control btn btn-primary" href="/download">Download</a>*@
+       @* <a href="#" class="btn">Show me</a>*@
        @* <a class="form-control btn btn-primary" href="/download">Download</a>*@
     </div>
 </header>
 
 <div class="container container-cards">
-    <div class="card">
+    <div class="card" >
         <div class="imgBx">
             <img src="img/outlook computer.jpg" />
         </div>
         <div class="content">
             <h2>Step 1.</h2>
-            <p>Download and install Shy Marketer Outlook add-in.</p>
-             <p>It is easy to install and simple to use.</p>
+            <p><a class="link-primary"   href="/download">Download</a> and install Shy Marketer Outlook add-in.It is easy to install and simple to use</p>
+          @*   <a class="form-control btn btn-primary" style="padding-top:20px;"  href="/download">Download</a>*@
         </div>
     </div>
       <div class="card">
         <div class="imgBx">
-            <img src="img/outlook computer.jpg" />
+            <img src="img/step2.jpg" style="  object-fit: cover;"/>
         </div>
         <div class="content">
             <h2>Step 2.</h2>
@@ -34,7 +41,7 @@
     </div>
       <div class="card">
         <div class="imgBx">
-            <img src="img/outlook computer.jpg" />
+            <img src="img/Step3.jpg" />
         </div>
         <div class="content">
             <h2>Step 3.</h2>
@@ -42,6 +49,37 @@
         </div>
     </div>
 </div>
+
+<div class="container question" style="margin-bottom:10px;" >
+       <Collapsable Title="What's the main idea?" Collapsed="true" Value="" >
+           The main idea behind this project is to enable developers and startups access to the customers and investors and to
+           improve cooperation between small companies. We choose Outlook because it is widely used as business mailing agent
+           and because it offers great possibilities for developers to integrate new solutions and ideas.
+       </Collapsable>
+</div>
+<div class="container question" style="margin-bottom:10px;">
+       <Collapsable Title="How do I use it?" Collapsed="true" Value="">
+           To use ShyMarketer, first you need to download the addin and install it in Outlook. This will only take a minute and
+           then you are ready and set to start marketing. Just click the addin button, fill up the data about your company and product
+           and in a matter of minutes you are already marketing your ideas!
+       </Collapsable>
+</div
+<div class="container question" style="margin-bottom:10px;" >
+       <Collapsable Title="Do I have to send any emails?" Collapsed="true" Value="">
+           No emails are being sent while using ShyMarketer addin. All the data about your product and company that you supplied to the addin
+           is instead displayes as an article on the ShyMarketer server, and is ready to be viewed by other developers and startups
+           once they are ready to share their products with the community.
+       </Collapsable>
+</div
+<div class="container question" style="margin-bottom:10px;" >
+       <Collapsable Title="How many times will my ad be displayed?" Collapsed="true" Value="">
+           We will be displaying ads in the chronoligical fashion - first one in first one out. Ofcourse, the 
+           bigger the community gets the more times your ad will be displayed. Also your target sector has an impact. You can also share links to your article
+           on social media websites to help marketing yourself. In the future we might come up with even better ideas on how to improve
+           your product's marketing!
+       </Collapsable>
+</div
+
 
 <footer class="footer">
     <div class="container">
@@ -74,3 +112,9 @@
         </div>
     </div>
 </footer>
+<style>
+    .question:hover{
+        cursor: pointer;
+    }
+     
+</style>
