@@ -46,7 +46,7 @@ namespace ShyMarketerAddin
             Article article = new Article();
             article = createNewArticle(article);
             //fetch the last article id by timestamp to show from database, in the sector that the company is in
-            string apiUrl = "https://localhost:7172/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
+            string apiUrl = "https://localhost:7263/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
             HttpClient client = new HttpClient();
             HttpResponseMessage responseis = client.PostAsync(apiUrl, null).Result;
             //MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);if (article is null) return;
@@ -65,7 +65,7 @@ namespace ShyMarketerAddin
 
             //communicate with API
             var jsonFormatedObj = Newtonsoft.Json.JsonConvert.SerializeObject(article);
-            string url = String.Format("https://localhost:7172/api/Articles");
+            string url = String.Format("https://localhost:7263/api/Articles");
             WebRequest requestObjPost = WebRequest.Create(url);
             requestObjPost.Method = "POST";
             requestObjPost.ContentType = "application/json";
