@@ -1,10 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\css\bootstrap\**" />
+    <Content Remove="wwwroot\css\bootstrap\**" />
+    <EmbeddedResource Remove="wwwroot\css\bootstrap\**" />
+    <None Remove="wwwroot\css\bootstrap\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MudBlazor" Version="6.0.13" />
+    <PackageReference Include="popper.js" Version="1.16.1" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ShyMarketerLibrary\ShyMarketerLibrary.csproj" />

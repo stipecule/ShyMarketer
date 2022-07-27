@@ -1,0 +1,62 @@
+﻿@using ShyMarketerLibrary.BusinessLogic
+@using ShyMarketerLibrary.DataAccess
+@using ShyMarketerLibrary.Models
+
+@inject IArticleController _db;
+
+<HeadContent>
+    <link href="css/article.css" rel="stylesheet" />
+    <link href="ShyMarketerServer.styles.css" rel="stylesheet" />
+</HeadContent>
+
+
+
+    @foreach(ShyMarketerLibrary.Models.Article art in articles){
+
+   <MudCard style="max-width:400px;">
+    <MudCardMedia Image="@ImageSrc" Height="200"   />
+    <MudCardContent>
+        <MudText Typo="Typo.h5" style="font-size:30px;margin-bottom:5px;">@art.ArticleTitle</MudText>
+        <MudText Typo="Typo.body2" style="margin-bottom:10px;color:orangered"><b>@art.ArticlePunchLine</b></MudText>
+        <MudText Typo="Typo.body2">@art.ArticleText</MudText>
+    </MudCardContent>
+    <MudCardActions style="justify-content: center;">
+      @*  <MudButton Variant="Variant.Text" Color="Color.Success">@art.CompanyLink</MudButton>*@
+          <MudIconButton Icon="@Icons.Filled.Link" href="@art.CompanyLink" Size="Size.Large" Color="Color.Info"/>
+          <MudIconButton Icon="@Icons.Filled.SentimentVerySatisfied" Size="Size.Large"Color="Color.Success"  href="#"/>
+    </MudCardActions>
+   
+</MudCard>
+
+
+@*<div class="row">
+    <img src="@ImageSrc" style="width: 100%,;"alt="Example image"/>
+</div>*@
+
+ }
+
+
+@code {
+     [Parameter]
+    public int ArticleId { get; set; }
+    private List<ShyMarketerLibrary.Models.Article> articles{ get; set; }
+    private string ImageSrc = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        articles = new List<ShyMarketerLibrary.Models.Article>();
+        articles =  await _db.LoadArticle(ArticleId);
+        var photo = GetImage(Convert.ToBase64String(articles[0].ArticleImage));
+        ImageSrc = string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(photo));
+    }
+    private byte[] GetImage(string sBase64string)
+    {
+        byte[] bytes = null;
+        if (!string.IsNullOrEmpty(sBase64string))
+        {
+            bytes = Convert.FromBase64String(sBase64string);
+        }
+        return bytes;
+    }
+}

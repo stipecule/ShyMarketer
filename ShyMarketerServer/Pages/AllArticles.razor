@@ -1,0 +1,98 @@
+﻿@page "/AllArticles"
+@using ShyMarketerLibrary.BusinessLogic
+@using ShyMarketerLibrary.DataAccess
+@using ShyMarketerLibrary.Models
+
+@inject IArticleController _db;
+
+<NavigationBar></NavigationBar>
+ @if (sectors.Count > 0)
+    {
+        <div style="margin-top:30px; margin-bottom:30px;">
+   
+    <h2 style="margin-bottom:10px;">Select marketing sector:</h2>
+<MudSelect T="string" Label="Coffee" AnchorOrigin="Origin.BottomCenter" Style="max-width:300px;"TextChanged="@SectorSelected"  >
+            @foreach(string s in sectors)
+            {
+                 <MudSelectItem Value="@s" />
+            }
+</MudSelect>
+
+
+    </div>
+}
+else
+{
+   <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+}
+@if (NumberOfArticles.Count() > 0)
+{
+    <div class="row">
+ @foreach(int artId in NumberOfArticles)
+    {
+       
+        <MudCard Outlined="false" style="margin-top:10px;margin-bottom:10px;min-width:400px;">
+    <MudCardContent>
+         <MiniArticle ArticleId="artId"></MiniArticle>
+    </MudCardContent>
+      @*<MudCardActions style="justify-content: center;">
+        <MudButton Variant="Variant.Text" Color="Color.Primary">Show full screen</MudButton>
+        <MudButton Variant="Variant.Text" Color="Color.Primary">Like</MudButton>
+    </MudCardActions>*@
+   
+</MudCard>
+       
+    }
+
+    </div>
+   
+}
+else
+{
+    
+}
+
+@code {
+    private List<string> sectors{ get; set; }
+    private string chosenSector{ get; set; }
+    private List<int> NumberOfArticles{ get; set; }
+    private int columnCounter{ get; set; }
+
+    protected  override void OnInitialized()
+    {
+        chosenSector = "";
+        columnCounter = 0;
+        NumberOfArticles = new List<int>();
+        sectors = new List<string>();
+        sectors = _db.LoadArticleSectors();
+    }
+    private void SectorSelected(string s)
+    {
+        chosenSector = s;
+        NumberOfArticles.Clear();
+        StateHasChanged();
+        NumberOfArticles = _db.GetMiniArticleIDs(chosenSector);
+    }
+
+}
+<style>
+    .containerCard{
+        display:flex;
+        gap:20px;
+        flex:0 1;
+        flex-wrap:wrap;
+        max-width:80%;
+        justify-content:center;
+
+    }
+    .mudcard{
+         box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+         transition: 0.3s ease-in-out;
+         flex-basis:400px;
+         
+    }
+    .mudcard:hover{
+         transform:scale(1.05);
+    }
+   
+</style>

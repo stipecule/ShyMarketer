@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ShyMarketerLibrary.DataAccess;
 
 namespace ShyMarketerLibrary.BusinessLogic
 {
@@ -51,7 +51,39 @@ values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,
             //parameters.Add("@CompanySector", CompanySector);
             return _db.GetMarketingID(queryString, CompanySector);
         }
-
+        public  List<string> LoadArticleSectors()
+        {
+            string queryString = @"select distinct CompanySector from articles;";
+            //var parameters = new DynamicParameters();
+            //parameters.Add("@CompanySector", CompanySector);
+            return _db.GetMarketingSectors(queryString);
+        }
+        public List<int> GetMiniArticleIDs(string CompanySector)
+        {
+            string queryString = @"select id from articles where CompanySector=@CompanySector;";
+            //var parameters = new DynamicParameters();
+            //parameters.Add("@CompanySector", CompanySector);
+            return _db.GetMiniArticleIDs(queryString, CompanySector);
+        }
+        public void UpdateLastSeen(int id)
+        {
+            string queryString = @"update articles set LastSeen=NOW() where id=@id;";
+           string ConnectionString = "";
+        var parameters = new { id = id };
+            //parameters.Add("@CompanySector", article.CompanySector);
+            //parameters.Add("@AboutCompanyText", article.AboutCompanyText);
+            //parameters.Add("@CompanyLink", article.CompanyLink);
+            //parameters.Add("@ArticlePunchLine", article.ArticlePunchLine);
+            //parameters.Add("@ArticleText", article.ArticleTitle);
+            //parameters.Add("@ArticleText", article.ArticleText);
+            //parameters.Add("@ArticleTargetAudience", article.ArticleTargetAudience);
+            //_db.Execute<Article, dynamic>(queryString, parameters);
+            using (var con = new MySql.Data.MySqlClient.MySqlConnection(ConnectionString))
+            {
+                con.Query(queryString,parameters);
+            }
+           
+        }
 
     }
 }

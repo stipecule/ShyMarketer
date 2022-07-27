@@ -14,7 +14,7 @@ namespace ShyMarketerLibrary.DataAccess
     public class MySqlAccess : IMySqlAccess
     {
         private readonly IConfiguration _config;
-        public string ConnectionString { get; set; } = "Server=635yhnodd4t4.eu-central-2.psdb.cloud;Database=shymarketer;user=fi7820gsufs2;password=pscale_pw_bg19P1NM93p3oB38geCSYDKMU3BwWrDlRaQUGrsRQlY;SslMode=VerifyFull;";
+        public string ConnectionString { get; set; } = "";
 
         public MySqlAccess(IConfiguration config)
         {
@@ -45,11 +45,29 @@ namespace ShyMarketerLibrary.DataAccess
                 con.Execute(query, param: article);
             }
         }
+       
+
         public int GetMarketingID(string query,string companySector)
         {
             using (var con = new MySql.Data.MySqlClient.MySqlConnection(ConnectionString))
             {
                 var affectedRows = con.Query<int>(query, new { CompanySector = companySector }).First();
+                return affectedRows;
+            }
+        }
+        public List<int> GetMiniArticleIDs(string query, string companySector)
+        {
+            using (var con = new MySql.Data.MySqlClient.MySqlConnection(ConnectionString))
+            {
+                var affectedRows = con.Query<int>(query, new { CompanySector = companySector }).ToList();
+                return affectedRows;
+            }
+        }
+        public List<string> GetMarketingSectors(string query)
+        {
+            using (var con = new MySql.Data.MySqlClient.MySqlConnection(ConnectionString))
+            {
+                var affectedRows = con.Query<string>(query).ToList(); ;
                 return affectedRows;
             }
         }

@@ -1,14 +1,13 @@
 ﻿@page "/"
 
 <PageTitle>Index</PageTitle>
-
+<NavigationBar></NavigationBar>
 <header class="hero">
     <div class="container">
         <h1 class="primary-title">The easy approach to marketing</h1>
         <p class="p-title">Let us leverage open source community to improve the <b>visibility</b> of our products</p>
         <div class="item" style="margin-top:70px;">
              <img class="special" src="img/icon.png" style="float: right;"/>
-               <p class="icon-text">Don't be shy, give ShyMarketer a try!</p>
           @*    <span class="caption">Don't be shy, give us a try!</span*@
         </div>
       
@@ -19,66 +18,95 @@
     </div>
 </header>
 
-<div class="container container-cards">
-    <div class="card" >
-        <div class="imgBx">
-            <img src="img/outlook computer.jpg" />
-        </div>
-        <div class="content">
-            <h2>Step 1.</h2>
-            <p><a class="link-primary"   href="/download">Download</a> and install Shy Marketer Outlook add-in.It is easy to install and simple to use</p>
-          @*   <a class="form-control btn btn-primary" style="padding-top:20px;"  href="/download">Download</a>*@
-        </div>
-    </div>
-      <div class="card">
-        <div class="imgBx">
-            <img src="img/step2.jpg" style="  object-fit: cover;"/>
-        </div>
-        <div class="content">
-            <h2>Step 2.</h2>
-            <p>When you are ready for market, simply use the add-in to compose an email to your target audience.</p>
-        </div>
-    </div>
-      <div class="card">
-        <div class="imgBx">
-            <img src="img/Step3.jpg" />
-        </div>
-        <div class="content">
-            <h2>Step 3.</h2>
-            <p>To get you gotta give...View other developer's products and then your product is shared with ShyMarketer community!</p>
-        </div>
-    </div>
-</div>
 
-<div class="container question" style="margin-bottom:10px;" >
-       <Collapsable Title="What's the main idea?" Collapsed="true" Value="" >
-           The main idea behind this project is to enable developers and startups access to the customers and investors and to
+<MudCarousel Class="mud-width-full" Style="height:200px; margin-top:50px;margin-bottom:50px;" ShowArrows="@arrows" ShowBullets="@bullets" AutoCycle="@autocycle" TData="object">
+    <MudCarouselItem Transition="transition">
+       <div class="d-flex flex-column flex-column justify-center" style="height:100%">
+			<MudIcon Class="mx-auto" Icon="@Icons.Filled.AccessibilityNew" Size="@Size.Large" />
+			<MudText Align="@Align.Center" Class="mx-auto">Reach out to the developer community and share your products!</MudText>
+		</div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition" Color="Color.Default">
+         <div class="d-flex flex-column flex-column justify-center" style="height:100%">
+			<MudIcon Class="mx-auto" Icon="@Icons.Filled.People" Size="@Size.Large" />
+			<MudText Align="@Align.Center" Class="mx-auto">Support others as they support you.</MudText>
+		</div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition" >
+        <div class="d-flex flex-column flex-column justify-center" style="height:100%">
+			<MudIcon Class="mx-auto" Icon="@Icons.Filled.DataExploration" Size="@Size.Large" />
+			<MudText Align="@Align.Center" Class="mx-auto">And join the community to grow new ideas...</MudText>
+		</div>
+    </MudCarouselItem>
+</MudCarousel>
+
+       <div class=" container containerCard">
+           <MudCard Class="mudcard" >
+    <MudCardMedia Image="img/outlook computer.jpg" Height="200" />
+    <MudCardContent>
+        <MudText Typo="Typo.h5">Step 1.</MudText>
+        <MudText Typo="Typo.body2" ><a href="/download"><b style="color:blue;">Download</b></a> and install Shy Marketer Outlook add-in.It is easy to install and simple to use</MudText>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Text" Color="Color.Primary" style="margin-left:auto;margin-right:auto;" ><a href="/download"><b style="color:blue;">Download</b></a></MudButton>
+    </MudCardActions>
+</MudCard>
+ <MudCard Class="mudcard">
+    <MudCardMedia Image="img/step2.jpg" Height="200" />
+    <MudCardContent>
+        <MudText Typo="Typo.h5">Step 2.</MudText>
+        <MudText Typo="Typo.body2" >When you are ready for market, simply use the add-in to compose an email to your target audience.
+            You can easily choose the target sector that your app is designed to work in. Check out sectors below!
+        </MudText>
+         <MudCardActions>
+       
+    </MudCardActions>
+    </MudCardContent>
+ 
+</MudCard >
+ <MudCard Class="mudcard">
+    <MudCardMedia Image="img/Step3.jpg" Height="200" />
+    <MudCardContent>
+        <MudText Typo="Typo.h5">Step 3.</MudText>
+        <MudText Typo="Typo.body2" >To get you gotta give...View other developer's products and then your product is shared with ShyMarketer community!</MudText>
+    </MudCardContent>
+    <MudCardActions>
+           <MudButton Variant="Variant.Text" Color="Color.Primary" style="margin-left:auto;margin-right:auto;" ><a href="#"><b style="color:blue;">Check</b></a></MudButton>
+
+    </MudCardActions>
+</MudCard>
+
+    </div>
+    <div class="container" style=" margin-top:50px;margin-bottom:30px;">
+<MudExpansionPanels MultiExpansion="true" >
+    <MudExpansionPanel  Text="What's the main idea?" >
+         The main idea behind this project is to enable developers and startups access to the customers and investors and to
            improve cooperation between small companies. We choose Outlook because it is widely used as business mailing agent
            and because it offers great possibilities for developers to integrate new solutions and ideas.
-       </Collapsable>
-</div>
-<div class="container question" style="margin-bottom:10px;">
-       <Collapsable Title="How do I use it?" Collapsed="true" Value="">
-           To use ShyMarketer, first you need to download the addin and install it in Outlook. This will only take a minute and
+    </MudExpansionPanel>
+    <MudExpansionPanel Text="How do I use it?">
+        To use ShyMarketer, first you need to download the addin and install it in Outlook. This will only take a minute and
            then you are ready and set to start marketing. Just click the addin button, fill up the data about your company and product
            and in a matter of minutes you are already marketing your ideas!
-       </Collapsable>
-</div
-<div class="container question" style="margin-bottom:10px;" >
-       <Collapsable Title="Do I have to send any emails?" Collapsed="true" Value="">
-           No emails are being sent while using ShyMarketer addin. All the data about your product and company that you supplied to the addin
+    </MudExpansionPanel>
+    <MudExpansionPanel Text="Do I have to send any emails?">
+        No emails are being sent while using ShyMarketer addin. All the data about your product and company that you supplied to the addin
            is instead displayed as an article on the ShyMarketer server, and is ready to be viewed by other developers and startups
            once they are ready to share their products with the community.
-       </Collapsable>
-</div
-<div class="container question" style="margin-bottom:10px;" >
-       <Collapsable Title="How many times will my ad be displayed?" Collapsed="true" Value="">
-           We will be displaying ads in the chronological fashion - first one in first one out. Ofcourse, the 
+    </MudExpansionPanel>
+    <MudExpansionPanel Text="How many times will my ad be displayed?">
+       We will be displaying ads in the chronological fashion - first one in first one out. Ofcourse, the 
            bigger the community gets the more times your ad will be displayed. Also your target sector has an impact. You can also share links to your article
            on social media websites to help marketing yourself. In the future we might come up with even better ideas on how to improve
            your product's marketing!
-       </Collapsable>
-</div
+    </MudExpansionPanel>
+</MudExpansionPanels>
+    </div>
+    
+
+
+
+
 
 
 <footer class="footer">
@@ -113,8 +141,32 @@
     </div>
 </footer>
 <style>
-    .question:hover{
-        cursor: pointer;
+    .containerCard {
+    margin-top:50px;
+     margin-bottom:30px;
+    display: flex;
+    gap: 20px;
+    flex: 0 1;
+    flex-wrap: wrap;
+    max-width: 80%;
+    justify-content: center;
+}
+
+.mudcard {
+    box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+    transition: 0.6s ease-in-out;
+    flex-basis: 400px;
+}
+
+    .mudcard:hover {
+        transform: scale(1.05);
     }
-     
+   
+
 </style>
+@code{
+    private bool arrows = false;
+    private bool bullets = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+}

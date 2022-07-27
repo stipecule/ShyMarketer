@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using MudBlazor.Services;
 using MySql.Data.MySqlClient;
 using ShyMarketerLibrary.BusinessLogic;
 using ShyMarketerLibrary.DataAccess;
 using ShyMarketerServer.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<IMySqlAccess, MySqlAccess>();
 builder.Services.AddScoped<IArticleController,ArticleController>();
+builder.Services.AddMudServices();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

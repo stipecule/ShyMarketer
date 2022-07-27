@@ -27,6 +27,7 @@ namespace ShyMarketerServer
         {
             Article article = new Article();
             article.id = _db.LoadArticleId(CompanySector);
+            _db.UpdateLastSeen(article.id);
             return article.id;
         }
 
