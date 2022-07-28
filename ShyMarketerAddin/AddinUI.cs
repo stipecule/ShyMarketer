@@ -45,6 +45,21 @@ namespace ShyMarketerAddin
             //get data for article from UI textboxes and comboboxes
             Article article = new Article();
             article = createNewArticle(article);
+            //communicate with API
+            var jsonFormatedObj = Newtonsoft.Json.JsonConvert.SerializeObject(article);
+            string url = String.Format("https://localhost:7263/api/Articles");
+            WebRequest requestObjPost = WebRequest.Create(url);
+            requestObjPost.Method = "POST";
+            requestObjPost.ContentType = "application/json";
+            using (var streamWriter = new StreamWriter(requestObjPost.GetRequestStream()))
+            {
+                streamWriter.Write(jsonFormatedObj);
+                streamWriter.Flush();
+                streamWriter.Close();
+                var httpResponse = (HttpWebResponse)requestObjPost.GetResponse();
+                if (httpResponse.StatusCode.ToString() == "OK") MessageBox.Show("Your product was sent to our database and is ready for marketing!Thank you for using ShyMarketer and good luck!!");
+                else MessageBox.Show("Please check input fields...");
+            }
             //fetch the last article id by timestamp to show from database, in the sector that the company is in
             string apiUrl = "https://localhost:7263/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
             HttpClient client = new HttpClient();
@@ -61,23 +76,8 @@ namespace ShyMarketerAddin
                     "others articles before we publish your own.");
                 return;
             }
-           
 
-            //communicate with API
-            var jsonFormatedObj = Newtonsoft.Json.JsonConvert.SerializeObject(article);
-            string url = String.Format("https://localhost:7263/api/Articles");
-            WebRequest requestObjPost = WebRequest.Create(url);
-            requestObjPost.Method = "POST";
-            requestObjPost.ContentType = "application/json";
-            using (var streamWriter = new StreamWriter(requestObjPost.GetRequestStream()))
-            {
-                streamWriter.Write(jsonFormatedObj);
-                streamWriter.Flush();
-                streamWriter.Close();
-                var httpResponse = (HttpWebResponse)requestObjPost.GetResponse();
-                if (httpResponse.StatusCode.ToString() == "OK") MessageBox.Show("Your product was sent to our database and is ready for marketing!Thank you for using ShyMarketer and good luck!!");
-                else MessageBox.Show("Please check input fields...");
-            }
+
            
            
         }
@@ -137,7 +137,8 @@ namespace ShyMarketerAddin
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     ImageFilePath = openFileDialog1.FileName;
-                    pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                    //pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                    labelImageAdded.Visible = true;
                 }
             }
             catch (Exception ex)

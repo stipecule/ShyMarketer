@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.comboBoxCompanySector = new System.Windows.Forms.ComboBox();
             this.textBoxAboutCompanyText = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,7 +43,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnCallAPI = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.comboBoxTargetAudience = new System.Windows.Forms.ComboBox();
@@ -52,14 +53,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxArticleTitle = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelImageAdded = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -117,6 +116,15 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tell us about yourself!";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(336, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Some wanna know facts about you, your company, goals, ambitions...";
             // 
             // comboBoxCompanySector
             // 
@@ -208,8 +216,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.labelImageAdded);
             this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.pictureBox);
             this.tabPage2.Controls.Add(this.kryptonButton1);
             this.tabPage2.Controls.Add(this.btnCallAPI);
             this.tabPage2.Controls.Add(this.comboBoxTargetAudience);
@@ -227,14 +235,14 @@
             this.tabPage2.Text = "Marketing";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox
+            // label9
             // 
-            this.pictureBox.Location = new System.Drawing.Point(463, 93);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(207, 76);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox.TabIndex = 19;
-            this.pictureBox.TabStop = false;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 156);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(170, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Main text of your advertising article";
             // 
             // kryptonButton1
             // 
@@ -330,23 +338,17 @@
             this.textBoxArticleTitle.Size = new System.Drawing.Size(535, 23);
             this.textBoxArticleTitle.TabIndex = 7;
             // 
-            // label3
+            // labelImageAdded
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 176);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(336, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Some wanna know facts about you, your company, goals, ambitions...";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 156);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(170, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Main text of your advertising article";
+            this.labelImageAdded.AutoSize = true;
+            this.labelImageAdded.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImageAdded.ForeColor = System.Drawing.Color.Green;
+            this.labelImageAdded.Location = new System.Drawing.Point(488, 117);
+            this.labelImageAdded.Name = "labelImageAdded";
+            this.labelImageAdded.Size = new System.Drawing.Size(87, 14);
+            this.labelImageAdded.TabIndex = 21;
+            this.labelImageAdded.Text = "ImageAdded";
+            this.labelImageAdded.Visible = false;
             // 
             // AddinUI
             // 
@@ -365,7 +367,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,8 +396,8 @@
         public ComponentFactory.Krypton.Toolkit.KryptonRichTextBox textBoxArticleText;
         public ComponentFactory.Krypton.Toolkit.KryptonButton btnCallAPI;
         public ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
-        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label labelImageAdded;
     }
 }

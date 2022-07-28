@@ -51,6 +51,7 @@ namespace ShyMarketerLibrary.DataAccess
         {
             using (var con = new MySql.Data.MySqlClient.MySqlConnection(ConnectionString))
             {
+                
                 var affectedRows = con.Query<int>(query, new { CompanySector = companySector }).First();
                 return affectedRows;
             }
