@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ShyMarketerLibrary.DataAccess;
+using Microsoft.Extensions.Configuration;
 
 namespace ShyMarketerLibrary.BusinessLogic
 {
     public class ArticleController : IArticleController
     {
         private readonly IMySqlAccess _db;
-        public ArticleController(IMySqlAccess db)
+        private readonly IConfiguration _config;
+        private string ConnectionString { get; set; }
+        public ArticleController(IMySqlAccess db, IConfiguration config)
         {
+            _config = config;
+            ConnectionString = _config.GetConnectionString("MySql");
             _db = db;
         }
 
@@ -32,16 +37,6 @@ namespace ShyMarketerLibrary.BusinessLogic
             string queryString = @"insert into articles(CompanyName,CompanySector,AboutCompanyText,CompanyLink,ArticleTitle,ArticlePunchLine,ArticleText,ArticleTargetAudience,ArticleImage) 
 values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,@ArticlePunchLine,@ArticleText,@ArticleTargetAudience,@ArticleImage);";
 
-            //var parameters = new DynamicParameters();
-            //parameters.Add("@CompanyName", article.CompanyName);
-            //parameters.Add("@CompanySector", article.CompanySector);
-            //parameters.Add("@AboutCompanyText", article.AboutCompanyText);
-            //parameters.Add("@CompanyLink", article.CompanyLink);
-            //parameters.Add("@ArticlePunchLine", article.ArticlePunchLine);
-            //parameters.Add("@ArticleText", article.ArticleTitle);
-            //parameters.Add("@ArticleText", article.ArticleText);
-            //parameters.Add("@ArticleTargetAudience", article.ArticleTargetAudience);
-            //_db.Execute<Article, dynamic>(queryString, parameters);
             _db.Insert(article, queryString);
         }
         public int LoadArticleId(string CompanySector)
@@ -68,7 +63,7 @@ values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,
         public void UpdateLastSeen(int id)
         {
             string queryString = @"update articles set LastSeen=NOW() where id=@id;";
-           string ConnectionString = "";
+
         var parameters = new { id = id };
             //parameters.Add("@CompanySector", article.CompanySector);
             //parameters.Add("@AboutCompanyText", article.AboutCompanyText);

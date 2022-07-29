@@ -14,11 +14,12 @@ namespace ShyMarketerLibrary.DataAccess
     public class MySqlAccess : IMySqlAccess
     {
         private readonly IConfiguration _config;
-        public string ConnectionString { get; set; } = "";
+        public string ConnectionString { get; set; } 
 
         public MySqlAccess(IConfiguration config)
         {
             _config = config;
+            ConnectionString = _config.GetConnectionString("MySql");
         }
         public async Task<List<T>> Fetch<T, U>(string sql, U parameters)
         {
