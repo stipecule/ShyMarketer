@@ -358,11 +358,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(167, 391);
+            this.label10.Location = new System.Drawing.Point(209, 391);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(373, 13);
+            this.label10.Size = new System.Drawing.Size(198, 13);
             this.label10.TabIndex = 22;
-            this.label10.Text = "Thank you for sharing your products, please wait while we publish your article!";
+            this.label10.Text = "Please wait while we publish your article!";
             this.label10.Visible = false;
             // 
             // AddinUI
