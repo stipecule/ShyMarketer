@@ -43,6 +43,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelImageAdded = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnCallAPI = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -53,7 +54,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxArticleTitle = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.labelImageAdded = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -216,6 +217,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.labelImageAdded);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.kryptonButton1);
@@ -235,12 +237,24 @@
             this.tabPage2.Text = "Marketing";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // labelImageAdded
+            // 
+            this.labelImageAdded.AutoSize = true;
+            this.labelImageAdded.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImageAdded.ForeColor = System.Drawing.Color.Green;
+            this.labelImageAdded.Location = new System.Drawing.Point(488, 117);
+            this.labelImageAdded.Name = "labelImageAdded";
+            this.labelImageAdded.Size = new System.Drawing.Size(87, 14);
+            this.labelImageAdded.TabIndex = 21;
+            this.labelImageAdded.Text = "ImageAdded";
+            this.labelImageAdded.Visible = false;
+            // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 156);
+            this.label9.Location = new System.Drawing.Point(6, 154);
+            this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(170, 13);
+            this.label9.Size = new System.Drawing.Size(191, 13);
             this.label9.TabIndex = 20;
             this.label9.Text = "Main text of your advertising article";
             // 
@@ -252,6 +266,7 @@
             this.kryptonButton1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonButton1.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonButton1.StateCommon.Border.Rounding = 5;
             this.kryptonButton1.TabIndex = 17;
             this.kryptonButton1.Values.Text = "Select an image";
@@ -264,9 +279,11 @@
             this.btnCallAPI.Size = new System.Drawing.Size(255, 34);
             this.btnCallAPI.StateCommon.Back.Color1 = System.Drawing.Color.LightGreen;
             this.btnCallAPI.StateCommon.Back.Color2 = System.Drawing.Color.LightGreen;
+            this.btnCallAPI.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnCallAPI.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btnCallAPI.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.btnCallAPI.StateCommon.Border.Rounding = 5;
             this.btnCallAPI.TabIndex = 16;
             this.btnCallAPI.Values.Text = "Let\'s market!!";
@@ -338,17 +355,15 @@
             this.textBoxArticleTitle.Size = new System.Drawing.Size(535, 23);
             this.textBoxArticleTitle.TabIndex = 7;
             // 
-            // labelImageAdded
+            // label10
             // 
-            this.labelImageAdded.AutoSize = true;
-            this.labelImageAdded.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelImageAdded.ForeColor = System.Drawing.Color.Green;
-            this.labelImageAdded.Location = new System.Drawing.Point(488, 117);
-            this.labelImageAdded.Name = "labelImageAdded";
-            this.labelImageAdded.Size = new System.Drawing.Size(87, 14);
-            this.labelImageAdded.TabIndex = 21;
-            this.labelImageAdded.Text = "ImageAdded";
-            this.labelImageAdded.Visible = false;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(167, 391);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(373, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Thank you for sharing your products, please wait while we publish your article!";
+            this.label10.Visible = false;
             // 
             // AddinUI
             // 
@@ -399,5 +414,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label labelImageAdded;
+        public System.Windows.Forms.Label label10;
     }
 }

@@ -26,6 +26,12 @@ namespace ShyMarketerAddin
                 .ExplorerEvents_10_SelectionChangeEventHandler
                 (CurrentExplorer_Event);
         }
+
+       
+
+     
+
+      
         private void CurrentExplorer_Event()
         {
             var addIn = Globals.ThisAddIn;
@@ -42,12 +48,30 @@ namespace ShyMarketerAddin
 
         private void btnCallAPI_Click(object sender, EventArgs e)
         {
+            label10.Visible = true;
             //get data for article from UI textboxes and comboboxes
             Article article = new Article();
             article = createNewArticle(article);
+            //fetch the last article id by timestamp to show from database, in the sector that the company is in
+            string apiUrl = "https://shymarketer.azurewebsites.net/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
+            HttpClient client = new HttpClient();
+            HttpResponseMessage responseis = client.PostAsync(apiUrl, null).Result;
+            //MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);if (article is null) return;
+            DialogResult dialogResult = MessageBox.Show("Please check out the following article before we market your product!", "Confirm", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start("https://shymarketer.azurewebsites.net/Article/" + responseis.Content.ReadAsStringAsync().Result);
+            }
+            else
+            {
+                MessageBox.Show("ShyMarketer relies on people sharing ideas and products, so please check out" +
+                    "others articles before we publish your own.");
+                return;
+            }
+
             //communicate with API
             var jsonFormatedObj = Newtonsoft.Json.JsonConvert.SerializeObject(article);
-            string url = String.Format("https://localhost:7263/api/Articles");
+            string url = String.Format("https://shymarketer.azurewebsites.net/api/Articles");
             WebRequest requestObjPost = WebRequest.Create(url);
             requestObjPost.Method = "POST";
             requestObjPost.ContentType = "application/json";
@@ -60,22 +84,7 @@ namespace ShyMarketerAddin
                 if (httpResponse.StatusCode.ToString() == "OK") MessageBox.Show("Your product was sent to our database and is ready for marketing!Thank you for using ShyMarketer and good luck!!");
                 else MessageBox.Show("Please check input fields...");
             }
-            //fetch the last article id by timestamp to show from database, in the sector that the company is in
-            string apiUrl = "https://localhost:7263/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
-            HttpClient client = new HttpClient();
-            HttpResponseMessage responseis = client.PostAsync(apiUrl, null).Result;
-            //MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);if (article is null) return;
-            DialogResult dialogResult = MessageBox.Show("Please check out the following article before we market your product!", "Confirm", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                System.Diagnostics.Process.Start("https://localhost:7263/Article/" + responseis.Content.ReadAsStringAsync().Result);
-            }
-            else
-            {
-                MessageBox.Show("ShyMarketer relies on people sharing ideas and products, so please check out" +
-                    "others articles before we publish your own.");
-                return;
-            }
+            label10.Visible = false;
 
 
            

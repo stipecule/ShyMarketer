@@ -14,11 +14,11 @@ namespace ShyMarketerServer.Pages
 
         public IActionResult OnGet()
         {
-            var filePath = Path.Combine(_env.WebRootPath, "files", "file1.xlsx");
+            var filePath = Path.Combine(_env.WebRootPath, "files", "shyMarkaddin.7z");
 
             byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
 
-            return File(fileBytes, "application/force-download", "jmp.exe");
+            return File(fileBytes, "application/force-download", "shyMarkaddin.7z");
         }
     }
 }

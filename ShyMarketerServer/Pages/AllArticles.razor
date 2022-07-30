@@ -11,7 +11,7 @@
         <div style="margin-top:30px; margin-bottom:30px;">
    
     <h2 style="margin-bottom:10px;">Select marketing sector:</h2>
-<MudSelect T="string" Label="Coffee" AnchorOrigin="Origin.BottomCenter" Style="max-width:300px;"TextChanged="@SectorSelected"  >
+<MudSelect T="string" Label="Sectors" AnchorOrigin="Origin.BottomCenter" Style="max-width:300px;"TextChanged="@SectorSelected"  >
             @foreach(string s in sectors)
             {
                  <MudSelectItem Value="@s" />

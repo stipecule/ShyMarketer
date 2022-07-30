@@ -22,8 +22,13 @@
     </MudCardContent>
     <MudCardActions style="justify-content: center;">
       @*  <MudButton Variant="Variant.Text" Color="Color.Success">@art.CompanyLink</MudButton>*@
-          <MudIconButton Icon="@Icons.Filled.Link" href="@($"Article/{ArticleId}")" Size="Size.Large" Color="Color.Info"/>
-          <MudIconButton Icon="@Icons.Filled.SentimentVerySatisfied" Size="Size.Large"Color="Color.Success"  href="#"/>
+      <MudTooltip Text="Open full page">
+        <MudIconButton Icon="@Icons.Filled.Link" href="@($"Article/{ArticleId}")" Size="Size.Large" Color="Color.Info"/>
+      </MudTooltip>
+          <MudTooltip Text="Rate me!">
+       @* <MudIconButton Icon="@Icons.Filled.SentimentVerySatisfied" Size="Size.Large"Color="Color.Success"  href="#"/>*@
+        <MudRating SelectedValue="2" />
+      </MudTooltip>
     </MudCardActions>
    
 </MudCard>

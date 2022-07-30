@@ -34,6 +34,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShyMarketer));
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.btnStart = this.Factory.CreateRibbonButton();
@@ -58,6 +59,7 @@
             // btnStart
             // 
             this.btnStart.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
             this.btnStart.Label = "Start";
             this.btnStart.Name = "btnStart";
             this.btnStart.ShowImage = true;
