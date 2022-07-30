@@ -48,14 +48,14 @@ values(@CompanyName,@CompanySector,@AboutCompanyText,@CompanyLink,@ArticleTitle,
         }
         public  List<string> LoadArticleSectors()
         {
-            string queryString = @"select distinct CompanySector from articles;";
+            string queryString = @"select distinct ArticleTargetAudience from articles;";
             //var parameters = new DynamicParameters();
             //parameters.Add("@CompanySector", CompanySector);
             return _db.GetMarketingSectors(queryString);
         }
         public List<int> GetMiniArticleIDs(string CompanySector)
         {
-            string queryString = @"select id from articles where CompanySector=@CompanySector;";
+            string queryString = @"select id from articles where ArticleTargetAudience=@CompanySector;";
             //var parameters = new DynamicParameters();
             //parameters.Add("@CompanySector", CompanySector);
             return _db.GetMiniArticleIDs(queryString, CompanySector);

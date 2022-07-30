@@ -12,13 +12,13 @@
 
 
     @foreach(ShyMarketerLibrary.Models.Article art in articles){
-
+        var a = art.ArticleText.Substring(0, Math.Min(150, art.ArticleText.Length));
    <MudCard style="max-width:300px;align-items:center; border-color:darkgray;">
     <MudCardMedia Image="@ImageSrc" Height="100"Style="max-width:80%;" />
     <MudCardContent>
         <MudText Typo="Typo.h5" style="font-size:30px;margin-bottom:5px;">@art.ArticleTitle</MudText>
         <MudText Typo="Typo.body2" style="margin-bottom:10px;color:orangered"><b>@art.ArticlePunchLine</b></MudText>
-        <MudText Typo="Typo.body2">@art.ArticleText</MudText>
+        <MudText Typo="Typo.body2">@a</MudText>
     </MudCardContent>
     <MudCardActions style="justify-content: center;">
       @*  <MudButton Variant="Variant.Text" Color="Color.Success">@art.CompanyLink</MudButton>*@
