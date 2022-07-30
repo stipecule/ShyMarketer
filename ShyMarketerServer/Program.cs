@@ -16,6 +16,9 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<IMySqlAccess, MySqlAccess>();
 builder.Services.AddScoped<IArticleController,ArticleController>();
 builder.Services.AddMudServices();
+builder.Services.AddCors(o =>
+            o.AddDefaultPolicy(b =>
+                b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
 var app = builder.Build();
 
@@ -32,7 +35,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseCors();
 app.MapBlazorHub();
 app.UseEndpoints(endpoints =>
 {

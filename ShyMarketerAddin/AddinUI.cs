@@ -52,8 +52,13 @@ namespace ShyMarketerAddin
             //get data for article from UI textboxes and comboboxes
             Article article = new Article();
             article = createNewArticle(article);
+            
             //fetch the last article id by timestamp to show from database, in the sector that the company is in
             string apiUrl = "https://shymarketer.azurewebsites.net/api/Articles/" + comboBoxCompanySector.SelectedItem.ToString();
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+
             HttpClient client = new HttpClient();
             HttpResponseMessage responseis = client.PostAsync(apiUrl, null).Result;
             //MessageBox.Show(responseis.Content.ReadAsStringAsync().Result);if (article is null) return;
